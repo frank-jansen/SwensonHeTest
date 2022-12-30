@@ -11,10 +11,12 @@ import Foundation
 
 struct ForecastResponse: Decodable {
 
+    let location: Location
     let current: TodayWeather
     let forecast: [Forecast]
         
     enum OuterKeys: String, CodingKey {
+        case location
         case current
         case forecast
     }
@@ -27,7 +29,7 @@ struct ForecastResponse: Decodable {
         let outerContainer = try decoder.container(keyedBy: OuterKeys.self)
         let forecastContainer = try outerContainer.nestedContainer(keyedBy: ForecastKeys.self,
                                                                    forKey: .forecast)
-        
+        location = try outerContainer.decode(Location.self, forKey: .location)
         current = try outerContainer.decode(TodayWeather.self, forKey: .current)
         forecast = try forecastContainer.decode([Forecast].self, forKey: .forecastday)
     }
