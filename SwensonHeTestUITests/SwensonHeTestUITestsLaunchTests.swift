@@ -2,7 +2,7 @@
 //  SwensonHeTestUITestsLaunchTests.swift
 //  SwensonHeTestUITests
 //
-//  Created by José Valderrama on 27/12/2022.
+//  Created by Frank Jansen on 27/12/2022.
 //
 
 import XCTest

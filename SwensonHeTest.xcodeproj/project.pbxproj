@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E304E2329A53E98003BD883 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E304E2229A53E98003BD883 /* SwiftUIView.swift */; };
+		6E37198829AD028400F07990 /* Double + SwensonHTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E37198729AD028400F07990 /* Double + SwensonHTest.swift */; };
+		6E37198A29AD767300F07990 /* Coding_Challenge_iOS_2022.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6E37198929AD767300F07990 /* Coding_Challenge_iOS_2022.pdf */; };
+		6E395313298043F500F33B2F /* MainForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E395312298043F500F33B2F /* MainForecast.swift */; };
+		6E395316298BFF4400F33B2F /* APIErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E395315298BFF4400F33B2F /* APIErrorResponse.swift */; };
+		6E395318299144C200F33B2F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E395317299144C200F33B2F /* SearchViewModel.swift */; };
+		6E39531A2993238E00F33B2F /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3953192993238E00F33B2F /* SearchListView.swift */; };
+		6E6426B4299FC7BB00C09911 /* LocationNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6426B3299FC7BB00C09911 /* LocationNameView.swift */; };
+		6E65935229A8052100998019 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E65935129A8052100998019 /* SearchBar.swift */; };
+		6EA9AB9529ABE9E80075547B /* String+SwensonHeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA9AB9429ABE9E80075547B /* String+SwensonHeTest.swift */; };
 		ABD3E9B9295B584000B2594B /* SwensonHeTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD3E9B8295B584000B2594B /* SwensonHeTestApp.swift */; };
 		ABD3E9BB295B584000B2594B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD3E9BA295B584000B2594B /* HomeView.swift */; };
 		ABD3E9BD295B584200B2594B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABD3E9BC295B584200B2594B /* Assets.xcassets */; };
@@ -44,6 +54,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E304E2229A53E98003BD883 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		6E37198729AD028400F07990 /* Double + SwensonHTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double + SwensonHTest.swift"; sourceTree = "<group>"; };
+		6E37198929AD767300F07990 /* Coding_Challenge_iOS_2022.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Coding_Challenge_iOS_2022.pdf; sourceTree = "<group>"; };
+		6E395312298043F500F33B2F /* MainForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainForecast.swift; sourceTree = "<group>"; };
+		6E39531429805F4D00F33B2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6E395315298BFF4400F33B2F /* APIErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorResponse.swift; sourceTree = "<group>"; };
+		6E395317299144C200F33B2F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		6E3953192993238E00F33B2F /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
+		6E6426B3299FC7BB00C09911 /* LocationNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNameView.swift; sourceTree = "<group>"; };
+		6E65935129A8052100998019 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		6EA9AB9429ABE9E80075547B /* String+SwensonHeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+SwensonHeTest.swift"; sourceTree = "<group>"; };
 		ABD3E9B5295B584000B2594B /* SwensonHeTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwensonHeTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABD3E9B8295B584000B2594B /* SwensonHeTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwensonHeTestApp.swift; sourceTree = "<group>"; };
 		ABD3E9BA295B584000B2594B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -91,9 +112,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6EA9AB9229ABE99D0075547B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				ABD3E9E8295B8CE900B2594B /* Service.swift */,
+				6E395315298BFF4400F33B2F /* APIErrorResponse.swift */,
+				ABD3E9E5295B5D4B00B2594B /* APIRequestable.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		6EA9AB9329ABE9BC0075547B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				6EA9AB9429ABE9E80075547B /* String+SwensonHeTest.swift */,
+				6E37198729AD028400F07990 /* Double + SwensonHTest.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		ABD3E9AC295B584000B2594B = {
 			isa = PBXGroup;
 			children = (
+				6E37198929AD767300F07990 /* Coding_Challenge_iOS_2022.pdf */,
 				ABD3E9B7295B584000B2594B /* SwensonHeTest */,
 				ABD3E9C8295B584300B2594B /* SwensonHeTestTests */,
 				ABD3E9D2295B584300B2594B /* SwensonHeTestUITests */,
@@ -114,6 +155,7 @@
 		ABD3E9B7295B584000B2594B /* SwensonHeTest */ = {
 			isa = PBXGroup;
 			children = (
+				6E39531429805F4D00F33B2F /* Info.plist */,
 				ABD3E9E4295B5CF400B2594B /* Common */,
 				ABD3E9FD295BB7E600B2594B /* Home */,
 				ABD3E9BE295B584200B2594B /* Preview Content */,
@@ -159,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				ABD3E9EA295B8E9F00B2594B /* HomeViewModel.swift */,
+				6E395317299144C200F33B2F /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -167,9 +210,9 @@
 			isa = PBXGroup;
 			children = (
 				ABD3E9B8295B584000B2594B /* SwensonHeTestApp.swift */,
+				6EA9AB9229ABE99D0075547B /* Service */,
 				ABD3E9BC295B584200B2594B /* Assets.xcassets */,
-				ABD3E9E5295B5D4B00B2594B /* APIRequestable.swift */,
-				ABD3E9E8295B8CE900B2594B /* Service.swift */,
+				6EA9AB9329ABE9BC0075547B /* Extension */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -179,6 +222,11 @@
 			children = (
 				ABD3E9BA295B584000B2594B /* HomeView.swift */,
 				ABD3E9FE295D9F8100B2594B /* ForecastView.swift */,
+				6E395312298043F500F33B2F /* MainForecast.swift */,
+				6E304E2229A53E98003BD883 /* SwiftUIView.swift */,
+				6E3953192993238E00F33B2F /* SearchListView.swift */,
+				6E6426B3299FC7BB00C09911 /* LocationNameView.swift */,
+				6E65935129A8052100998019 /* SearchBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -318,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABD3E9C0295B584200B2594B /* Preview Assets.xcassets in Resources */,
+				6E37198A29AD767300F07990 /* Coding_Challenge_iOS_2022.pdf in Resources */,
 				ABD3E9BD295B584200B2594B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,14 +393,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABD3E9EB295B8E9F00B2594B /* HomeViewModel.swift in Sources */,
+				6EA9AB9529ABE9E80075547B /* String+SwensonHeTest.swift in Sources */,
+				6E395313298043F500F33B2F /* MainForecast.swift in Sources */,
+				6E304E2329A53E98003BD883 /* SwiftUIView.swift in Sources */,
 				ABD3E9FC295BB75D00B2594B /* Location.swift in Sources */,
 				ABD3E9BB295B584000B2594B /* HomeView.swift in Sources */,
+				6E6426B4299FC7BB00C09911 /* LocationNameView.swift in Sources */,
 				ABD3E9E9295B8CE900B2594B /* Service.swift in Sources */,
 				ABD3E9F6295BA06800B2594B /* Forecast.swift in Sources */,
+				6E37198829AD028400F07990 /* Double + SwensonHTest.swift in Sources */,
+				6E395318299144C200F33B2F /* SearchViewModel.swift in Sources */,
+				6E395316298BFF4400F33B2F /* APIErrorResponse.swift in Sources */,
 				ABD3E9FA295BB57400B2594B /* WeatherCondition.swift in Sources */,
 				ABD3E9F8295BB4D200B2594B /* TodayWeather.swift in Sources */,
 				ABD3E9E6295B5D4B00B2594B /* APIRequestable.swift in Sources */,
 				ABD3E9B9295B584000B2594B /* SwensonHeTestApp.swift in Sources */,
+				6E39531A2993238E00F33B2F /* SearchListView.swift in Sources */,
+				6E65935229A8052100998019 /* SearchBar.swift in Sources */,
 				ABD3E9ED295B917000B2594B /* ForecastResponse.swift in Sources */,
 				ABD3E9EF295B928800B2594B /* WeatherService.swift in Sources */,
 				ABD3E9FF295D9F8100B2594B /* ForecastView.swift in Sources */,
@@ -515,7 +573,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SwensonHeTest/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = SwensonHeTest/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -526,7 +585,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = jose.SwensonHeTest;
+				PRODUCT_BUNDLE_IDENTIFIER = frank.SwensonHeTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -544,7 +603,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SwensonHeTest/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = SwensonHeTest/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -555,7 +615,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = jose.SwensonHeTest;
+				PRODUCT_BUNDLE_IDENTIFIER = frank.SwensonHeTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -573,7 +633,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = jose.SwensonHeTestTests;
+				PRODUCT_BUNDLE_IDENTIFIER = frank.SwensonHeTestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -592,7 +652,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = jose.SwensonHeTestTests;
+				PRODUCT_BUNDLE_IDENTIFIER = frank.SwensonHeTestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -609,7 +669,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = jose.SwensonHeTestUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = frank.SwensonHeTestUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -626,7 +686,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = jose.SwensonHeTestUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = frank.SwensonHeTestUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;

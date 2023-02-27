@@ -2,7 +2,7 @@
 //  APIRequestable.swift
 //  SwensonHeTest
 //
-//  Created by José Valderrama on 27/12/2022.
+//  Created by Frank Jansen 27/12/2022.
 //
 
 import Network
@@ -15,12 +15,20 @@ import Foundation
 /// Uses Service to consume basic endpoints. It can be improved, few examples status code, error handleling and logs, monitor handler
 class APIRequestable {
     
-    enum APIError: Error {
+    enum APIError: LocalizedError {
         case noInternet
-        case malformed
-        case unsuccess(code: Int)
+        case malformed(String)
+//        case unsuccess(errorResponse: APIErrorResponse)
         // can be renamed (?)
-        case decoding(underlying: Error)
+        case underlying(Error)
+        
+        var errorDescription: String? {
+            switch self {
+            case .noInternet: return "No internet connection"
+            case let .malformed(url): return "The URL ( \(url) ) is malformed"
+            case let .underlying(error): return "Underlying: \(error.localizedDescription)"
+            }
+        }
     }
     
     // maybe we can have this inside a single manager instead creating it every time an APIRequestable is created 👀
@@ -29,7 +37,7 @@ class APIRequestable {
     // could be used with login (?) instead of hardcoded.
     var sessionKey: String? = "fe2434c0cd1b480cac8162214222712"
     
-    var isConnected = false
+    var isConnected = true
     
     init() {
         networkMonitor.pathUpdateHandler = { path in
@@ -38,32 +46,39 @@ class APIRequestable {
         networkMonitor.start(queue: workerQueue)
     }
     
-    func request<T : Decodable>(service: Service, model: T.Type) async throws -> T {
+    func request<T : Decodable>(service: Service, modelType: T.Type) async throws -> T {
         guard isConnected else {
             throw APIError.noInternet
         }
         
-        guard let url = URL(service: service) else {
-            throw APIError.malformed
+        guard let url = service.url else {
+           throw APIError.malformed(service.fullPath)
         }
         
         var request = URLRequest(url: url)
         request.httpMethod = service.method.rawValue
         
         do {
+            
             // the can be "wrapped", for example with DEBUG
             print("▶️ url \(request.url?.absoluteString ?? "")")
             let (data, response) = try await URLSession.shared.data(for: request)
             let statusCode = (response as? HTTPURLResponse)?.statusCode ?? -1
             
+            let decoder = JSONDecoder()
             guard 200..<300 ~= statusCode else {
-                throw APIError.unsuccess(code: statusCode)
+                let errorModel = try decoder.decode(APIErrorResponse.self, from: data)
+                throw errorModel
             }
 
-            let model = try JSONDecoder().decode(model.self, from: data)
+            let model = try decoder.decode(modelType.self, from: data)
             return model
-        } catch {
-            throw APIError.decoding(underlying: error)
+        }
+        catch let error as APIErrorResponse {
+            throw error
+        }
+        catch {
+            throw APIError.underlying(error)
         }
     }
 }

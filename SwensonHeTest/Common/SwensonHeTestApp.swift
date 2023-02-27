@@ -2,7 +2,7 @@
 //  SwensonHeTestApp.swift
 //  SwensonHeTest
 //
-//  Created by José Valderrama on 27/12/2022.
+//  Created by Frank Jansen on 27/12/2022.
 //
 
 import SwiftUI

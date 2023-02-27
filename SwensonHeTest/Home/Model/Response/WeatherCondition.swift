@@ -2,13 +2,17 @@
 //  WeatherCondition.swift
 //  SwensonHeTest
 //
-//  Created by José Valderrama on 28/12/2022.
+//  Created by Frank Jansen on 28/12/2022.
 //
 
 import Foundation
 
-struct WeatherCondition: Decodable {
+struct WeatherCondition: Decodable, Hashable {
     let text: String
-    let icon: String    
+    let icon: String
+    var url: URL? {
+        URL(string: "https:\(icon)")
+    }
 }
 
+//https://cdn.weatherapi.com/weather/64x64/day/116.png

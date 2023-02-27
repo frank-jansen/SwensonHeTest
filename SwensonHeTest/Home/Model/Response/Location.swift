@@ -2,18 +2,21 @@
 //  Location.swift
 //  SwensonHeTest
 //
-//  Created by José Valderrama on 28/12/2022.
+//  Created by Frank Jansen on 28/12/2022.
 //
 
 import Foundation
 
-struct Location: Decodable {
+struct Location: Decodable, Hashable {
     let name: String
-    /// epoch
-    let date: Double
+    let region: String
+    let country: String
+    let localtime: Double?
     
     enum CodingKeys: String, CodingKey {
         case name
-        case date = "localtime_epoch"
+        case region
+        case country
+        case localtime = "localtime_epoch"
     }
 }

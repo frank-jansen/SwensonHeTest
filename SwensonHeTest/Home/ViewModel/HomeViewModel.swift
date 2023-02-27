@@ -2,33 +2,33 @@
 //  HomeViewModel.swift
 //  SwensonHeTest
 //
-//  Created by José Valderrama on 27/12/2022.
+//  Created by Frank Jansen on 27/12/2022.
 //
 
 import SwiftUI
 
+@MainActor
 class HomeViewModel: APIRequestable, ObservableObject  {
     
-    @Published var forecast: [Forecast] = .init()
+    @Published var forecastResponse: ForecastResponse?
     @Published var errorMessage: String?
     
-    func getForecast() {
+    func getForecast(city: String) {
         Task {
             do {
                 let response = try await request(service: WeatherService.forecast(key: "fe2434c0cd1b480cac8162214222712",
-                                                                                  query: "london",
+                                                                                  query: city,
                                                                                   days: 3),
-                                               model: ForecastResponse.self)
-                
+                                                 modelType: ForecastResponse.self)
+
                 print(response)
-                
-                forecast = response.forecast
+                forecastResponse = response
                 errorMessage = nil
             } catch {
-                print("error \(error)")
+                print("error en viewmodel \(error)")
+                print(error.localizedDescription)
                 errorMessage = error.localizedDescription
             }
         }
     }
-    
 }

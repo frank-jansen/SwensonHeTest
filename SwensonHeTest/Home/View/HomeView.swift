@@ -2,67 +2,109 @@
 //  HomeView.swift
 //  SwensonHeTest
 //
-//  Created by José Valderrama on 27/12/2022.
+//  Created by Frank Jansen on 27/12/2022.
 //
 
 import SwiftUI
 
 struct HomeView: View {
-    let viewModel = HomeViewModel()
+    
+    
+    @StateObject var viewModel = HomeViewModel()
+    @State private var selectectText = "London"
+    private let forecastWidthPercent = 0.27
+    private let forecastHeightPercent = 0.087
     
     var body: some View {
+       
+        
         ZStack {
-            background
-            gradient
-            
-            VStack {
-                searchBar
-                header
-            }
-            .padding()
+            mainBodyView
+            SearchBar(selectectText: $selectectText)
         }
-        .onAppear(perform: viewModel.getForecast)
+        .frame(maxWidth: .infinity)
+        .background(background)
+        .onAppear {
+            viewModel.getForecast(city: selectectText)
+        }
+        .onChange(of: selectectText) { _ in
+            viewModel.getForecast(city: selectectText)
+        }        
+    }
+    
+    var mainBodyView: some View {
+       
+        
+        
+        VStack {
+            realtimeDate
+            
+            if let currentLocation = viewModel.forecastResponse?.location {
+                LocationNameView(location: currentLocation)
+            }
+            
+            Spacer()
+            
+            if let current = viewModel.forecastResponse?.current {
+                MainForecast(todayWeather: current)
+                Spacer()
+            }
+            
+            forecastdays
+            Spacer()
+        }
+    }
+    
+    var realtimeDate: some View{
+        let clock = getCurrentTime()
+        
+        return Text(clock)
+            .foregroundColor(.white)
+            .font(.headline)
+            .fontWeight(.semibold)
+            .lineSpacing(3.5)
+            .kerning(0)
+            .multilineTextAlignment(.leading)
+            .padding()
+    }
+       
+    var errormessage: some View {
+        Text(viewModel.errorMessage ?? "")
+    }
+    
+    var forecastdays: some View {
+        HStack (spacing: 55) {
+            if let forecasts = viewModel.forecastResponse?.forecast {
+                ForEach(forecasts, id: \.self) { forecast in
+                    ForecastView(forecast: forecast)
+                }
+            }
+        }
     }
     
     var background: some View {
-        Image("background")
-            .resizable()
-            .scaledToFill()
-            .ignoresSafeArea()
-    }
-    
-    var gradient: some View {
-        LinearGradient(gradient:
-                        Gradient(colors: [Color("gradientblue100"),
-                                                   Color("gradientblue80"),
-                                                   Color("gradientblue100")]),
-                       startPoint: .leading,
-                       endPoint: .trailing)
-    }
-    
-    var searchBar: some View {
-        HStack {
-            Spacer()
+        Group {
+            Image("background")
+                .resizable()
+                .scaledToFill()
             
-            Button {
-                
-            } label: {
-                Image("search")
-            }
+            LinearGradient(gradient:
+                            Gradient(colors: [Color("gradientblue100"),
+                                              Color("gradientblue80"),
+                                              Color("gradientblue100")]),
+                           startPoint: .leading,
+                           endPoint: .trailing)
         }
+        .ignoresSafeArea()
     }
     
-    var header: some View {
-        VStack(spacing: 4) {
-            Text("San Francisco")
-                .fontWeight(.heavy)
-                .foregroundColor(.white)
-                .padding()
-            
-            Text("Tuesday, 12 Apr 2022")
-                .fontWeight(.regular)
-                .foregroundColor(.white)
-        }
+    func getCurrentTime() -> String {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        
+        let dateString = formatter.string(from: Date())
+        
+        return dateString
     }
 }
 
@@ -75,3 +117,5 @@ struct HomeView_Previews: PreviewProvider {
         }
     }
 }
+
+

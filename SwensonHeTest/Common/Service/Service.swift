@@ -2,7 +2,7 @@
 //  Service.swift
 //  SwensonHeTest
 //
-//  Created by José Valderrama on 27/12/2022.
+//  Created by Frank Jansen on 27/12/2022.
 //
 
 import Foundation
@@ -17,6 +17,11 @@ protocol Service {
     var method: HttpMethod { get }
 }
 
+extension Service {
+    var fullPath: String { base + path }
+    var url: URL? { .init(service: self) }
+}
+
 // MARK: - Enums
 
 enum HttpMethod: String {
@@ -27,9 +32,8 @@ enum HttpMethod: String {
 
 extension URL {
     
-    init?<T: Service>(service: T) {
-        self.init(string: service.path.isEmpty
-                  ? service.base :
-                    service.base + service.path)
-    }    
+    init?(service: Service) {
+       self.init(string: service.fullPath)
+    }
+    
 }
